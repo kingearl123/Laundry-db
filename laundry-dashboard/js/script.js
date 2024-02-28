@@ -36,21 +36,7 @@ function closeModal(modalId) {
         console.error('No modal found with id: ' + modalId);
     }
 }
-
-// function closeModal(modalId) {
-//     // If no ID is passed, default to the currently displayed modal
-//     if (!modalId) {
-//         modalId = document.querySelector('.modal.show').id;
-//     }
-
-//     var modalElement = document.getElementById(modalId);
-//     if (modalElement) {
-//         modalElement.style.display = 'none';
-//     } else {
-//         console.error('No modal found with id: ' + modalId);
-//     }
-// }
-
+
 
 // Event listener for closing modal
 var closeButtons = document.getElementsByClassName('close');
