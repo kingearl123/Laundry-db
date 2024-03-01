@@ -9,7 +9,7 @@ include "../config/config.php";
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Responsive Login and Signup Form </title>
+  <title> Login Form </title>
   <style>
     /* Google Fonts - Poppins */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
