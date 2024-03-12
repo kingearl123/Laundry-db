@@ -54,12 +54,12 @@ $statusBayar = "belum_dibayar";
 $biayaTambahan = 0;
 $pajak = 0.0075;
 
-$query = "INSERT INTO tb_transaksi (id_outlet, kode_invoice, id_member, tgl, batas_waktu, tgl_bayar, biaya_tambahan, diskon, pajak, status, dibayar, id_user) values ('$id_outlet','$kodeInvoice', '$id_member','$tgl','$batasTgl','$tglBayar','$biayaTambahan','$diskon','$pajak','baru', '$statusBayar', $id_user)";
+$query = "INSERT INTO tb_transaksi (id_outlet, kode_invoice, id_member, tgl, batas_waktu, tgl_bayar, biaya_tambahan, diskon, pajak, status, dibayar, id_user) 
+values ('$id_outlet','$kodeInvoice', '$id_member','$tgl','$batasTgl','$tglBayar','$biayaTambahan','$diskon','$pajak','baru', '$statusBayar', $id_user)";
 $hasil = mysqli_query($conn, $query);
 
 if (!$hasil && !$hasilDetail) {
-    die("QUERY GAGAL DIJALANKAN:" . mysqli_errno($conn) . "-" . mysqli_error($conn));
+    die("QUERY FAILED TO EXECUTE:" . mysqli_errno($conn) . "-" . mysqli_error($conn));
 } else {
-    echo "<script>alert('data Berhasil Disimpan');window.location='../../dashboard.php?page=detail-transaksi';</script>";
+    echo "<script>alert('Data Saved Successfully');window.location='../../dashboard.php?page=detail-transaksi';</script>";
 }
-?>

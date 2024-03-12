@@ -17,13 +17,20 @@
         $hasilUpdate = mysqli_query($conn, $updateBiaya);
     }
 
-    $query = "INSERT INTO tb_detail_transaksi (id_transaksi,id_paket,qty,keterangan) values ('$id_transaksi','$id_paket','$qty','$keterangan')";
+$queryPaket = "SELECT * FROM tb_paket WHERE id_paket = '$id_paket'";
+$hasilPaket = mysqli_query($conn, $queryPaket);
+$rowPaket = mysqli_fetch_array($hasilPaket);
+
+$harga = $rowPaket['harga'];
+$totalHarga = $qty * $harga;
+
+$query = "INSERT INTO tb_detail_transaksi (id_transaksi,id_paket,qty,keterangan,harga_paket,total_harga) values ('$id_transaksi','$id_paket','$qty','$keterangan','$harga','$totalHarga')";
     $hasil = mysqli_query($conn, $query);
 
     if (!$hasil && !$hasilUpdate) {
-        die("QUERY GAGAL DIJALANKAN:".mysqli_errno($conn)."-". mysqli_error($conn));
+    die("QUERY FAILED TO EXECUTE:" . mysqli_errno($conn) . "-" . mysqli_error($conn));
     }else{
-        echo"<script>window.location='../../dashboard.php?page=detail-transaksi';</script>";
+    echo "<script>window.location='../../dashboard.php?page=detail-transaksi&id_transaksi=$id_transaksi';</script>";
     }
     
 ?>

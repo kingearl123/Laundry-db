@@ -2,30 +2,6 @@
 
 
     <h2 align="center">Detail Transaksi</h2>
-    <div id="modaltambah" class="modal">
-        <!-- ... (konten modal) ... -->
-        <div class="modal-header">
-            <h5 class="modal-title">Tambah Data</h5>
-            <span class="close" style="cursor: pointer;" onclick="closeModal('<?php echo $modal_id ?>')">&times;</span>
-        </div>
-        <div class="modal-body">
-            <form action="./proses/outlet/proses-tambah-outlet.php" class="login-form" method="post">
-                <div class="form-group">
-                    <label for="nama">Nama Outlet</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Outlet" required>
-                </div>
-                <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <input type="text" name="alamat" class="form-control" placeholder="Masukan Alamat Outlet" required>
-                </div>
-                <div class="form-group">
-                    <label for="tlp">Nomor Telephone</label>
-                    <input type="text" name="tlp" placeholder="Masukan Nomor Telephone" class="form-control" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>
 
     <div class="flex" style="display: flex;
         justify-content: space-between;" ">
@@ -86,9 +62,12 @@
                     <input type="text" name="id_transaksi" value="<?= $rowTransaksi['id_transaksi'] ?>" hidden>
                     <select id="status-select" name="status" class="input" style="width: 150px; font-size:16px;">
                         <option value="baru" <?php if ($rowTransaksi['status'] == 'baru') echo "selected='selected'"; ?>>Baru</option>
-                        <option value="proses" <?php if ($rowTransaksi['status'] == 'proses') echo "selected='selected'"; ?>>Proses</option>
-                        <option value="selesai" <?php if ($rowTransaksi['status'] == 'selesai') echo "selected='selected'"; ?>>Selesai</option>
-                        <option value="diambil" <?php if ($rowTransaksi['status'] == 'diambil') echo "selected='selected'"; ?>>Diambil</option>
+                        <option value="proses" <?php if ($rowTransaksi['status'] == 'proses') echo "selected='selected'"; ?>>Proses
+                        </option>
+                        <option value="selesai" <?php if ($rowTransaksi['status'] == 'selesai') echo "selected='selected'"; ?>>Selesai
+                        </option>
+                        <option value="diambil" <?php if ($rowTransaksi['status'] == 'diambil') echo "selected='selected'"; ?>>Diambil
+                        </option>
                     </select>
                 </form>
             </td>
@@ -143,7 +122,8 @@
                     <td><?= @$rowDetailProduct['qty'] ?></td>
                     <td><?= rupiah(@$hasilProduct['harga']) ?></td>
                     <td align="right"><?= rupiah(@$totalHargaPerItem) ?></td>
-                    <td class="x"><a href="./proses/transaksi/detail-product-transaksi.php?id_detail_transaksi=<?= @$rowDetailProduct['id_detail_transaksi'] ?>&id_transaksi=<?= $id_transaksi ?>">X</a></td>
+                    <td class="x"><a href="./proses/transaksi/detail-product-transaksi.php?id_detail_transaksi=<?= @$rowDetailProduct['id_detail_transaksi'] ?>&id_transaksi=<?= $id_transaksi ?>">X</a>
+                    </td>
                 </tr>
             <?php
             }

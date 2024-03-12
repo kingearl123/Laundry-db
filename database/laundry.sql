@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2024 at 11:45 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Feb 27, 2024 at 07:47 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,26 +42,12 @@ CREATE TABLE `tb_detail_transaksi` (
 --
 
 INSERT INTO `tb_detail_transaksi` (`id_detail_transaksi`, `id_transaksi`, `id_paket`, `qty`, `keterangan`, `harga_paket`, `total_harga`) VALUES
-(33, 42, 3, 1, '', 0, 0),
-(35, 44, 3, 1, '', 0, 0),
-(36, 45, 3, 1, '', 0, 0),
-(37, 46, 3, 1, '', 0, 0),
-(38, 46, 3, 1, '', 0, 0),
-(39, 47, 3, 1, '', 0, 0),
-(40, 48, 3, 1, '', 0, 0),
-(41, 49, 8, 1, '', 0, 0),
-(42, 51, 8, 1, '', 0, 0),
-(43, 52, 10, 1, '', 20000, 20000),
-(44, 52, 3, 1, '', 25000, 25000),
-(45, 52, 10, 2, '', 20000, 40000),
-(46, 53, 3, 1, '', 25000, 25000),
-(47, 50, 11, 1, '', 0, 0),
-(50, 55, 3, 1, '', 0, 0),
-(51, 54, 4, 1, 'Di setrika', 0, 0),
-(53, 58, 7, 1, '', 0, 0),
-(54, 59, 5, 1, '', 0, 0),
-(55, 60, 4, 1, '', 0, 0),
-(56, 61, 3, 1, '', 0, 0);
+(33, 42, 3, 1, '', 25000, 25000),
+(34, 42, 9, 2, '', 45000, 90000),
+(35, 43, 8, 1, '', 35000, 35000),
+(36, 44, 6, 2, '', 50000, 100000),
+(37, 45, 6, 3, '', 50000, 150000),
+(38, 45, 10, 2, '', 20000, 40000);
 
 -- --------------------------------------------------------
 
@@ -82,7 +68,7 @@ CREATE TABLE `tb_member` (
 --
 
 INSERT INTO `tb_member` (`id_member`, `nama`, `alamat`, `jenis_kelamin`, `tlp`) VALUES
-(1, '  nadine', 'Jln. Semangka', 'P', '086575583923');
+(1, 'nadine', 'Jln. Semangka', 'P', '086575583923');
 
 -- --------------------------------------------------------
 
@@ -102,7 +88,7 @@ CREATE TABLE `tb_outlet` (
 --
 
 INSERT INTO `tb_outlet` (`id_outlet`, `nama`, `alamat`, `tlp`) VALUES
-(1, 'PT.Teknologi Canggih', 'Jalan', '09382356474475'),
+(1, 'PT.Teknologi Canggih', 'Jalan Nanas', '09382356474475'),
 (4, 'pt laundry', 'jalan nusakambangan', '08765456789');
 
 -- --------------------------------------------------------
@@ -134,9 +120,7 @@ INSERT INTO `tb_paket` (`id_paket`, `id_outlet`, `jenis`, `nama_paket`, `harga`)
 (10, 1, 'selimut', 'Selimut S (Kecil)', 20000),
 (11, 1, 'selimut', 'Selimut M (Sedang-Besar)', 25000),
 (12, 1, 'lain', 'Sprei 2 PCS CKS', 35000),
-(13, 1, 'kiloan', 'Cuci Kering Lipat (CKL) 3KG', 25000),
-(14, 4, 'kiloan', 'cuci cepat', 30000),
-(15, 4, 'kiloan', 'cuci express', 18000);
+(13, 4, 'kiloan', 'Cuci Kering Lipat (CKL) 3KG', 25000);
 
 -- --------------------------------------------------------
 
@@ -157,6 +141,7 @@ CREATE TABLE `tb_transaksi` (
   `pajak` double NOT NULL,
   `status` enum('baru','proses','selesai','diambil') NOT NULL,
   `dibayar` enum('dibayar','belum_dibayar') NOT NULL,
+  `bayar` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -164,11 +149,11 @@ CREATE TABLE `tb_transaksi` (
 -- Dumping data for table `tb_transaksi`
 --
 
-INSERT INTO `tb_transaksi` (`id_transaksi`, `id_outlet`, `kode_invoice`, `id_member`, `tgl`, `batas_waktu`, `tgl_bayar`, `biaya_tambahan`, `diskon`, `pajak`, `status`, `dibayar`, `id_user`) VALUES
-(58, 1, 'INV/2024/02/23/1', 1, '2024-02-23 09:03:57', '2024-02-26 09:03:57', '2024-02-23 09:04:21', 0, 0, 0.0075, 'diambil', 'dibayar', 8),
-(59, 1, 'INV/2024/02/23/2', 1, '2024-02-23 09:06:02', '2024-02-26 09:06:02', '2024-02-23 09:06:29', 0, 0, 0.0075, 'selesai', 'dibayar', 8),
-(60, 1, 'INV/2024/02/23/3', 1, '2024-02-23 09:11:10', '2024-02-26 09:11:10', '2024-02-23 09:11:23', 0, 0, 0.0075, 'diambil', 'dibayar', 8),
-(61, 1, 'INV/2024/02/24/4', 1, '2024-02-24 10:09:58', '2024-02-27 10:09:58', '2024-02-24 10:11:44', 0, 10, 0.0075, 'selesai', 'dibayar', 7);
+INSERT INTO `tb_transaksi` (`id_transaksi`, `id_outlet`, `kode_invoice`, `id_member`, `tgl`, `batas_waktu`, `tgl_bayar`, `biaya_tambahan`, `diskon`, `pajak`, `status`, `dibayar`, `bayar`, `id_user`) VALUES
+(42, 1, 'INV/2024/02/27/1', 1, '2024-02-27 14:01:34', '2024-03-01 14:01:34', '2024-02-27 14:18:30', 5000, 0, 0.0075, 'diambil', 'dibayar', 0, 7),
+(43, 1, 'INV/2024/02/27/2', 1, '2024-02-27 14:21:47', '2024-03-01 14:21:47', '2024-02-27 14:26:48', 0, 0, 0.0075, 'selesai', 'dibayar', 0, 7),
+(44, 1, 'INV/2024/02/27/3', 1, '2024-02-27 14:29:45', '2024-03-01 14:29:45', '2024-02-27 14:30:04', 0, 0, 0.0075, 'proses', 'dibayar', 120000, 7),
+(45, 1, 'INV/2024/02/27/4', 1, '2024-02-27 14:35:39', '2024-03-01 14:35:39', '0000-00-00 00:00:00', 4000, 10, 0.0075, 'baru', 'belum_dibayar', 0, 7);
 
 -- --------------------------------------------------------
 
@@ -250,7 +235,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_detail_transaksi`
 --
 ALTER TABLE `tb_detail_transaksi`
-  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `tb_member`
@@ -262,19 +247,19 @@ ALTER TABLE `tb_member`
 -- AUTO_INCREMENT for table `tb_outlet`
 --
 ALTER TABLE `tb_outlet`
-  MODIFY `id_outlet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_outlet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_paket`
 --
 ALTER TABLE `tb_paket`
-  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_paket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `tb_user`

@@ -12,6 +12,7 @@ include "../config/config.php";
   <title> Responsive Login and Signup Form </title>
   <style>
     /* Google Fonts - Poppins */
+
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
     * {
@@ -94,17 +95,6 @@ include "../config/config.php";
       border-bottom-width: 2px;
     }
 
-    .eye-icon {
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      font-size: 18px;
-      color: #8b8b8b;
-      cursor: pointer;
-      padding: 5px;
-    }
-
     .field button {
       color: #fff;
       background-color: #0171d3;
@@ -156,58 +146,13 @@ include "../config/config.php";
       padding: 0 15px;
     }
 
-    .media-options a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
 
-    a.facebook {
-      color: #fff;
-      background-color: #4267b2;
-    }
 
-    a.facebook .facebook-icon {
-      height: 28px;
-      width: 28px;
-      color: #0171d3;
-      font-size: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #fff;
-    }
-
-    .facebook-icon,
-    img.google-img {
-      position: absolute;
-      top: 50%;
-      left: 15px;
-      transform: translateY(-50%);
-    }
-
-    img.google-img {
-      height: 20px;
-      width: 20px;
-      object-fit: cover;
-    }
-
-    a.google {
-      border: 1px solid #CACACA;
-    }
-
-    a.google span {
-      font-weight: 500;
-      opacity: 0.6;
-      color: #232836;
-    }
 
     @media screen and (max-width: 400px) {
       .form {
         padding: 20px 10px;
       }
-
     }
   </style>
 
