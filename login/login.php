@@ -172,7 +172,7 @@ include "../config/config.php";
         <form action="../proses/proses-login.php" method="post">
 
           <div class="field input-field">
-            <input type="text" name="username" placeholder="Email" class="input">
+            <input type="text" name="username" placeholder="Username" class="input">
           </div>
 
           <div class="field input-field">
