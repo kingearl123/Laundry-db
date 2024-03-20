@@ -124,7 +124,10 @@ section {
     font-weight: bold;
     color: #3490dc;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
 
 /* sidebar */
 
@@ -538,7 +541,11 @@ td {
     .custom-btn {
         width: 120px;
     }
+<<<<<<< HEAD
     .custom-btn-1 {
         width: 120px;
     }
 }
+=======
+}
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b

@@ -49,10 +49,17 @@ function rupiah($angka)
                     <tr style="background-color: #f69990;">
 
                         <td>
+<<<<<<< HEAD
                             Batas Waktu :
                             <?= substr($data['batas_waktu'], 0, -8) ?>
                             <br>
                             Jam :
+=======
+                            Retrieval Limit :
+                            <?= substr($data['batas_waktu'], 0, -8) ?>
+                            <br>
+                            Hour :
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
                             <?= substr($data['batas_waktu'], -8, 5) ?>
                             <br><br>
                             <b>
@@ -84,7 +91,11 @@ function rupiah($angka)
                             $totalHarga += $pajak;
                             ?>
                             <br><br>
+<<<<<<< HEAD
                             Total Harga : <b>
+=======
+                            Total Price : <b>
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
                                 <?= rupiah($totalHarga) ?>
                             </b>
                             <br>
@@ -127,10 +138,17 @@ function rupiah($angka)
                     <tr style="background-color: #e4d385;">
 
                         <td>
+<<<<<<< HEAD
                             Batas Waktu :
                             <?= substr($data['batas_waktu'], 0, -8) ?>
                             <br>
                             Jam :
+=======
+                            Retrieval Limit :
+                            <?= substr($data['batas_waktu'], 0, -8) ?>
+                            <br>
+                            Hour :
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
                             <?= substr($data['batas_waktu'], -8, 5) ?>
                             <br><br>
                             <b>
@@ -162,10 +180,22 @@ function rupiah($angka)
                             $totalHarga += $pajak;
                             ?>
                             <br><br>
+<<<<<<< HEAD
                             Total Harga : <b>
                                 <?= rupiah($totalHarga) ?>
                             </b>
                             <br>
+=======
+                            Total Price : <b>
+                                <?= rupiah($totalHarga) ?>
+                            </b>
+                            <br>
+                            <?php
+                            if ($data['dibayar'] == 'dibayar') {
+                                echo "Change : <b>" . rupiah($data['bayar'] - round($totalHarga)) . "</b>";
+                            }
+                            ?>
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
                         </td>
 
                         <td align="center">
@@ -206,10 +236,17 @@ function rupiah($angka)
                     <tr style="background-color: #90ee90;">
 
                         <td>
+<<<<<<< HEAD
                             Batas Waktu :
                             <?= substr($data['batas_waktu'], 0, -8) ?>
                             <br>
                             Jam :
+=======
+                            Retrieval Limit :
+                            <?= substr($data['batas_waktu'], 0, -8) ?>
+                            <br>
+                            Hour :
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
                             <?= substr($data['batas_waktu'], -8, 5) ?>
                             <br><br>
                             <b>
@@ -241,10 +278,22 @@ function rupiah($angka)
                             $totalHarga += $pajak;
                             ?>
                             <br><br>
+<<<<<<< HEAD
                             Total Harga : <b>
                                 <?= rupiah($totalHarga) ?>
                             </b>
                             <br>
+=======
+                            Total Price : <b>
+                                <?= rupiah($totalHarga) ?>
+                            </b>
+                            <br>
+                            <?php
+                            if ($data['dibayar'] == 'dibayar') {
+                                echo "Change : <b>" . rupiah($data['bayar'] - round($totalHarga)) . "</b>";
+                            }
+                            ?>
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
                         </td>
 
                         <td align="center">
@@ -283,10 +332,17 @@ function rupiah($angka)
                     <tr style="background-color: #00bfff;">
 
                         <td>
+<<<<<<< HEAD
                             Batas Waktu :
                             <?= substr($data['batas_waktu'], 0, -8) ?>
                             <br>
                             Jam :
+=======
+                            Retrieval Limit :
+                            <?= substr($data['batas_waktu'], 0, -8) ?>
+                            <br>
+                            Hour :
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
                             <?= substr($data['batas_waktu'], -8, 5) ?>
                             <br><br>
                             <b>
@@ -318,10 +374,22 @@ function rupiah($angka)
                             $totalHarga += $pajak;
                             ?>
                             <br><br>
+<<<<<<< HEAD
                             Total Harga : <b>
                                 <?= rupiah($totalHarga) ?>
                             </b>
                             <br>
+=======
+                            Total Price : <b>
+                                <?= rupiah($totalHarga) ?>
+                            </b>
+                            <br>
+                            <?php
+                            if ($data['dibayar'] == 'dibayar') {
+                                echo "Change : <b>" . rupiah($data['bayar'] - round($totalHarga)) . "</b>";
+                            }
+                            ?>
+>>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
                         </td>
 
 
