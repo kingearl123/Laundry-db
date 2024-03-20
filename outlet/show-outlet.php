@@ -44,6 +44,7 @@
             </tr>
 
             <?php
+            $no = 1;
             $queryoutlet = "SELECT * FROM tb_outlet ORDER BY id_outlet ASC";
             $sql_rm = mysqli_query($conn, $queryoutlet) or die(mysqli_error($conn));
             while ($dataoutlet = mysqli_fetch_array($sql_rm)) {
@@ -51,13 +52,13 @@
 
             ?>
                 <tr>
-                    <td><?= $dataoutlet['id_outlet'] ?></td>
+                    <td><?= $no++ ?></td>
                     <td><?= $dataoutlet['nama'] ?></td>
                     <td><?= $dataoutlet['alamat'] ?></td>
                     <td><?= $dataoutlet['tlp'] ?></td>
                     <td>
 
-                    <button type="button" class="custom-btn btn-2" data-outlet-id="<?= $dataoutlet['id_outlet'] ?>" onclick="openModal('<?php echo $modal_id ?>')">Edit</button>
+                        <button type="button" class="custom-btn btn-2" data-outlet-id="<?= $dataoutlet['id_outlet'] ?>" onclick="openModal('<?php echo $modal_id ?>')">Edit</button>
 
                         <a href="./proses/outlet/proses-hapus-outlet.php?id_outlet=<?= $dataoutlet['id_outlet'] ?>" class="custom-btn btn-3">Hapus</a>
                     </td>
@@ -72,19 +73,19 @@
                     <div class="modal-body">
                         <form action="./proses/outlet/proses-edit-outlet.php" class="login-form" method="post">
                             <div class="form-group">
-                                <input type="text" name="id_outlet" value="<?=$dataoutlet['id_outlet']?>" hidden class="form-control" placeholder="Masukan Nama Outlet" required>
+                                <input type="text" name="id_outlet" value="<?= $dataoutlet['id_outlet'] ?>" hidden class="form-control" placeholder="Masukan Nama Outlet" required>
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nama Outlet</label>
-                                <input type="text" name="nama" value="<?=$dataoutlet['nama']?>" class="form-control" placeholder="Masukan Nama Outlet" required>
+                                <input type="text" name="nama" value="<?= $dataoutlet['nama'] ?>" class="form-control" placeholder="Masukan Nama Outlet" required>
                             </div>
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
-                                <input type="text" name="alamat" value="<?=$dataoutlet['alamat']?>" class="form-control" placeholder="Masukan Alamat Outlet" required>
+                                <input type="text" name="alamat" value="<?= $dataoutlet['alamat'] ?>" class="form-control" placeholder="Masukan Alamat Outlet" required>
                             </div>
                             <div class="form-group">
                                 <label for="tlp">Nomor Telephone</label>
-                                <input type="text" name="tlp" value="<?=$dataoutlet['tlp']?>" placeholder="Masukan Nomor Telephone" class="form-control" required>
+                                <input type="text" name="tlp" value="<?= $dataoutlet['tlp'] ?>" placeholder="Masukan Nomor Telephone" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

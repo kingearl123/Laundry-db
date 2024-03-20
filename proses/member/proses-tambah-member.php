@@ -11,8 +11,9 @@ $hasil = mysqli_query($conn,$query);
 if (!$hasil) {
     die("QUERY GAGAL DIJALANKAN:".mysqli_errno($conn)."-". mysqli_error($conn));
 }else{
-    echo"<script>alert('data Berhasil Disimpan');
-    // window.location='../../dashboard.php?page=member';</script>";
+    echo
+    "<script>alert('data Berhasil Disimpan');
+    window.location='../../dashboard.php?page=member';</script>";
 }
 
 ?>

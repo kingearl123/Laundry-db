@@ -42,7 +42,7 @@
     <div class="myclass">
         <table border="1">
             <tr>
-                <td>ID Outlet</td>
+                <td>ID Member</td>
                 <td>Nama</td>
                 <td>Alamat</td>
                 <td>Jenis Kelamin</td>
@@ -51,13 +51,14 @@
             </tr>
 
             <?php
+            $no = 1;
             $queryoutlet = "SELECT * FROM tb_member ORDER BY id_member ASC";
             $sql_rm = mysqli_query($conn, $queryoutlet) or die(mysqli_error($conn));
             while ($dataoutlet = mysqli_fetch_array($sql_rm)) {
                 $modal_id = "modalubah" . $dataoutlet['id_member'];
             ?>
                 <tr>
-                    <td><?= $dataoutlet['id_member'] ?></td>
+                    <td><?= $no++ ?></td>
                     <td><?= $dataoutlet['nama'] ?></td>
                     <td><?= $dataoutlet['alamat'] ?></td>
                     <td><?= $dataoutlet['jenis_kelamin'] ?></td>
@@ -79,27 +80,29 @@
                         <form action="./proses/member/proses-edit-member.php" class="login-form" method="post">
 
                             <div class="form-group">
-                                <input type="text" name="id_member" value="<?= $dataoutlet ['id_member']?>" hidden class="form-control" placeholder="Masukan Nama Outlet" required>
+                                <input type="text" name="id_member" value="<?= $dataoutlet['id_member'] ?>" hidden class="form-control" placeholder="Masukan Nama Outlet" required>
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nama Member</label>
-                                <input type="text" name="namaMember" class="form-control" value=" <?= $dataoutlet['nama']?>" placeholder="Masukan Nama Outlet" required>
+                                <input type="text" name="namaMember" class="form-control" value=" <?= $dataoutlet['nama'] ?>" placeholder="Masukan Nama Outlet" required>
                             </div>
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
-                                <input type="text" name="alamatMember" value="<?=$dataoutlet['alamat'];?>" class="form-control" placeholder="Masukan Alamat Member" required>
+                                <input type="text" name="alamatMember" value="<?= $dataoutlet['alamat']; ?>" class="form-control" placeholder="Masukan Alamat Member" required>
                             </div>
                             <div class="form-group">
                                 <label for="jenis_kelamin">Jenis Kelamin</label>
                                 <select name="jenisKelaminMember" id="jenisKelamin" class="form-control">
-                                    <option value="<?=$dataoutlet['jenis_kelamin'];?>"><?=$dataoutlet['jenis_kelamin'];?></option>
+                                    <option value="<?= $dataoutlet['jenis_kelamin']; ?>">
+                                        <?= $dataoutlet['jenis_kelamin']; ?>
+                                    </option>
                                     <option value="L">Laki-Laki</option>
                                     <option value="P">Perempuan</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="telpMember">Nomor Telephone</label>
-                                <input type="text" name="telpMember" value="<?= $dataoutlet['tlp'];?>" placeholder="Masukan Nomor Telephone" class="form-control" required>
+                                <input type="text" name="telpMember" value="<?= $dataoutlet['tlp']; ?>" placeholder="Masukan Nomor Telephone" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

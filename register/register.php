@@ -147,7 +147,7 @@ include "../config/config.php";
         }
 
 
-        
+
 
         @media screen and (max-width: 400px) {
             .form {
@@ -171,7 +171,7 @@ include "../config/config.php";
                 <header>Login</header>
                 <form action="../proses/proses-register.php" method="post">
                     <div class="field input-field">
-                        <input type="text" name="nama" placeholder="Masukan Nama " class="input">
+                        <input type="text" name="nama" placeholder="Masukan Nama Lengkap" class="input">
                     </div>
                     <div class="field input-field">
                         <input type="text" name="username" placeholder="Masukan Username" class="input">
@@ -180,23 +180,23 @@ include "../config/config.php";
                     <div class="field input-field">
                         <input type="password" name="password" placeholder="Password" class="password">
                     </div>
-                    
-                        <select class="field input-field" name="id_outlet" id="">
-                            <?php
-                            $query = mysqli_query($conn, "SELECT * FROM tb_outlet");
-                            while ($hasil = mysqli_fetch_assoc($query)) {
-                            ?>
-                                <option value="<?= $hasil['id_outlet']; ?>"><?= $hasil['nama']; ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                    
-                        <select class="field input-field" name="role" id="">
-                            <option value="owner">owner</option>
-                            <option value="admin">admin</option>
-                            <option value="kasir">kasir</option>
-                        </select>
+
+                    <select class="field input-field" name="id_outlet" id="">
+                        <?php
+                        $query = mysqli_query($conn, "SELECT * FROM tb_outlet");
+                        while ($hasil = mysqli_fetch_assoc($query)) {
+                        ?>
+                            <option value="<?= $hasil['id_outlet']; ?>"><?= $hasil['nama']; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+
+                    <select class="field input-field" name="role" id="">
+                        <option value="owner">owner</option>
+                        <option value="admin">admin</option>
+                        <option value="kasir">kasir</option>
+                    </select>
                     <div class="field button-field">
                         <input type="submit" style="background: #4070f4; color:#FFF;" value="login"></input>
                     </div>

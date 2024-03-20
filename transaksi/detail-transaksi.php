@@ -162,15 +162,18 @@
         </table>
     </div>
 
-    <div class="btn-width" style="margin-top: 20px;">
-        <button type="button" <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden" ?> class="custom-btn btn-1" onclick="openModal('modaltambahpaket')">
+    <div class="btn-width">
+        <button type="button" <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden"; ?> class="custom-btn btn-1" onclick="openModal('modaltambahpaket')">
             Tambah
         </button>
-        <button type="button" class="custom-btn btn-1" <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden" ?> onclick="openModal('modalbayar')">
+        <button type="button" class="custom-btn-1 btn-1" <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden"; ?> onclick="openModal('modalbayar')">
             Pay Now
         </button>
-        <a href="./dashboard.php?page=transaksi" <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden" ?> class="btn-1 custom-btn">Pay Later</a>
-        <button type="button" class="custom-btn btn-1" onclick="window.print();" <?php if ($rowTransaksi['dibayar'] == 'belum_dibayar') echo "hidden" ?>>Print</button>
+        <button type="button" onclick="window.location='./dashboard.php?page=transaksi'" <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden"; ?> class="btn-1 custom-btn-1">
+            Pay Later
+        </button>
+        <!-- <a href="?>>Pay Later</a> -->
+        <button type="button" class="custom-btn btn-1" onclick="window.print();" <?php if ($rowTransaksi['dibayar'] == 'belum_dibayar') echo "hidden"; ?>>Print</button>
     </div>
 
     <div id="modaltambahpaket" class="modal">

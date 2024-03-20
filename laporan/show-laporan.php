@@ -21,6 +21,7 @@ function rupiah($angka)
 
 
     <div class="myclass">
+
         <table onchange="myFunction()" id="myTable" class="table-bordered" border="1" cellpadding="10" cellspacing="0" align="center">
             <tr>
                 <th>Kode Invoice</th>
@@ -46,14 +47,21 @@ function rupiah($angka)
                 if ($data['status'] == "baru") {
             ?>
                     <tr style="background-color: #f69990;">
+
                         <td>
-                            Batas Pengambilan : <?= substr($data['batas_waktu'], 0, -8) ?>
+                            Batas Waktu :
+                            <?= substr($data['batas_waktu'], 0, -8) ?>
                             <br>
-                            Jam : <?= substr($data['batas_waktu'], -8, 5) ?>
+                            Jam :
+                            <?= substr($data['batas_waktu'], -8, 5) ?>
                             <br><br>
-                            <b><?= $data['kode_invoice'] ?></b>
+                            <b>
+                                <?= $data['kode_invoice'] ?>
+                            </b>
                         </td>
-                        <td><?= $hasilUser['nama'] ?></td>
+                        <td>
+                            <?= $hasilUser['nama'] ?>
+                        </td>
                         <td>
                             <?php
                             $idTransaksi = $data['id_transaksi'];
@@ -68,10 +76,20 @@ function rupiah($angka)
                             <?php
                             }
                             $totalHarga += $biaya_tambahan;
+                            if ($data['diskon'] > 0) {
+                                $diskon = $totalHarga * $data['diskon'] / 100;
+                                $totalHarga -= $diskon;
+                            }
+                            $pajak = $totalHarga * $data['pajak'];
+                            $totalHarga += $pajak;
                             ?>
                             <br><br>
-                            Total Harga : <b><?= rupiah($totalHarga) ?></b>
+                            Total Harga : <b>
+                                <?= rupiah($totalHarga) ?>
+                            </b>
+                            <br>
                         </td>
+
                         <td align="center">
                             <form id="status-form" action="./proses/transaksi/proses-edit-status-transaksi.php" method="post">
                                 <input type="text" name="id_transaksi" value="<?= $data['id_transaksi'] ?>" hidden>
@@ -101,19 +119,27 @@ function rupiah($angka)
                             }
                             ?>
                         </td>
+
                     </tr>
                 <?php
                 } else if ($data['status'] == "proses") {
                 ?>
                     <tr style="background-color: #e4d385;">
+
                         <td>
-                            Batas Pengambilan : <?= substr($data['batas_waktu'], 0, -8) ?>
+                            Batas Waktu :
+                            <?= substr($data['batas_waktu'], 0, -8) ?>
                             <br>
-                            Jam : <?= substr($data['batas_waktu'], -8, 5) ?>
+                            Jam :
+                            <?= substr($data['batas_waktu'], -8, 5) ?>
                             <br><br>
-                            <b><?= $data['kode_invoice'] ?></b>
+                            <b>
+                                <?= $data['kode_invoice'] ?>
+                            </b>
                         </td>
-                        <td><?= $hasilUser['nama'] ?></td>
+                        <td>
+                            <?= $hasilUser['nama'] ?>
+                        </td>
                         <td>
                             <?php
                             $idTransaksi = $data['id_transaksi'];
@@ -128,10 +154,20 @@ function rupiah($angka)
                             <?php
                             }
                             $totalHarga += $biaya_tambahan;
+                            if ($data['diskon'] > 0) {
+                                $diskon = $totalHarga * $data['diskon'] / 100;
+                                $totalHarga -= $diskon;
+                            }
+                            $pajak = $totalHarga * $data['pajak'];
+                            $totalHarga += $pajak;
                             ?>
                             <br><br>
-                            Total Harga : <b><?= rupiah($totalHarga) ?></b>
+                            Total Harga : <b>
+                                <?= rupiah($totalHarga) ?>
+                            </b>
+                            <br>
                         </td>
+
                         <td align="center">
                             <form id="status-form" action="./proses/transaksi/proses-edit-status-transaksi.php" method="post">
                                 <input type="text" name="id_transaksi" value="<?= $data['id_transaksi'] ?>" hidden>
@@ -161,19 +197,28 @@ function rupiah($angka)
                             }
                             ?>
                         </td>
+
+
                     </tr>
                 <?php
                 } else if ($data['status'] == "selesai") {
                 ?>
                     <tr style="background-color: #90ee90;">
+
                         <td>
-                            Batas Pengambilan : <?= substr($data['batas_waktu'], 0, -8) ?>
+                            Batas Waktu :
+                            <?= substr($data['batas_waktu'], 0, -8) ?>
                             <br>
-                            Jam : <?= substr($data['batas_waktu'], -8, 5) ?>
+                            Jam :
+                            <?= substr($data['batas_waktu'], -8, 5) ?>
                             <br><br>
-                            <b><?= $data['kode_invoice'] ?></b>
+                            <b>
+                                <?= $data['kode_invoice'] ?>
+                            </b>
                         </td>
-                        <td><?= $hasilUser['nama'] ?></td>
+                        <td>
+                            <?= $hasilUser['nama'] ?>
+                        </td>
                         <td>
                             <?php
                             $idTransaksi = $data['id_transaksi'];
@@ -188,10 +233,20 @@ function rupiah($angka)
                             <?php
                             }
                             $totalHarga += $biaya_tambahan;
+                            if ($data['diskon'] > 0) {
+                                $diskon = $totalHarga * $data['diskon'] / 100;
+                                $totalHarga -= $diskon;
+                            }
+                            $pajak = $totalHarga * $data['pajak'];
+                            $totalHarga += $pajak;
                             ?>
                             <br><br>
-                            Total Harga : <b><?= rupiah($totalHarga) ?></b>
+                            Total Harga : <b>
+                                <?= rupiah($totalHarga) ?>
+                            </b>
+                            <br>
                         </td>
+
                         <td align="center">
                             <form id="status-form" action="./proses/transaksi/proses-edit-status-transaksi.php" method="post">
                                 <input type="text" name="id_transaksi" value="<?= $data['id_transaksi'] ?>" hidden>
@@ -226,14 +281,21 @@ function rupiah($angka)
                 } else if ($data['status'] == "diambil") {
                 ?>
                     <tr style="background-color: #00bfff;">
+
                         <td>
-                            Batas Pengambilan : <?= substr($data['batas_waktu'], 0, -8) ?>
+                            Batas Waktu :
+                            <?= substr($data['batas_waktu'], 0, -8) ?>
                             <br>
-                            Jam : <?= substr($data['batas_waktu'], -8, 5) ?>
+                            Jam :
+                            <?= substr($data['batas_waktu'], -8, 5) ?>
                             <br><br>
-                            <b><?= $data['kode_invoice'] ?></b>
+                            <b>
+                                <?= $data['kode_invoice'] ?>
+                            </b>
                         </td>
-                        <td><?= $hasilUser['nama'] ?></td>
+                        <td>
+                            <?= $hasilUser['nama'] ?>
+                        </td>
                         <td>
                             <?php
                             $idTransaksi = $data['id_transaksi'];
@@ -248,10 +310,21 @@ function rupiah($angka)
                             <?php
                             }
                             $totalHarga += $biaya_tambahan;
+                            if ($data['diskon'] > 0) {
+                                $diskon = $totalHarga * $data['diskon'] / 100;
+                                $totalHarga -= $diskon;
+                            }
+                            $pajak = $totalHarga * $data['pajak'];
+                            $totalHarga += $pajak;
                             ?>
                             <br><br>
-                            Total Harga : <b><?= rupiah($totalHarga) ?></b>
+                            Total Harga : <b>
+                                <?= rupiah($totalHarga) ?>
+                            </b>
+                            <br>
                         </td>
+
+
                         <td align="center">
                             <form id="status-form" action="./proses/transaksi/proses-edit-status-transaksi.php" method="post">
                                 <input type="text" name="id_transaksi" value="<?= $data['id_transaksi'] ?>" hidden>

@@ -88,6 +88,43 @@ section {
     color: var(--grey-color);
 }
 
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+    /* Added border */
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3490dc;
+}
+
 
 /* sidebar */
 
@@ -424,9 +461,9 @@ td {
 
 .custom-btn-1 {
     animation: both;
-    /* width: 120px; */
+    width: 120px;
     height: 40px;
-    color: #fff;
+    color: black;
     border-radius: 5px;
     padding: 10px 25px;
     font-family: 'Lato', sans-serif;
@@ -457,7 +494,7 @@ td {
     background: yellow;
     border: none;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .btn-3 {
@@ -466,6 +503,10 @@ td {
     background: red;
     border: none;
     color: white;
+}
+
+.btn-width {
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -495,6 +536,9 @@ td {
         display: flex;
     }
     .custom-btn {
+        width: 120px;
+    }
+    .custom-btn-1 {
         width: 120px;
     }
 }
