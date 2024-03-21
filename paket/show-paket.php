@@ -76,10 +76,7 @@
             </tr>
 
             <?php
-<<<<<<< HEAD
             $no = 1;
-=======
->>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
             $query = "SELECT * FROM tb_paket ORDER BY id_outlet ASC";
             $sql_rm = mysqli_query($conn, $query) or die(mysqli_error($conn));
             while ($data = mysqli_fetch_array($sql_rm)) {
@@ -87,11 +84,7 @@
             ?>
                 <tr>
                     <td>
-<<<<<<< HEAD
                         <?= $no++ ?>
-=======
-                        <?= $data['id_paket'] ?>
->>>>>>> fe190269a0087379e86107e40331a1f1a2bcb48b
                     </td>
 
                     <td>
