@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include './config/config.php';
 session_start();
@@ -26,3 +26,5 @@ if (@$_SESSION['username'] == null) {
 </head>
 
 <body>
+
+    <div id="overlay" class="overlay"></div>

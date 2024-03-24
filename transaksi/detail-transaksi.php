@@ -122,7 +122,7 @@
                     <td><?= @$rowDetailProduct['qty'] ?></td>
                     <td><?= rupiah(@$hasilProduct['harga']) ?></td>
                     <td align="right"><?= rupiah(@$totalHargaPerItem) ?></td>
-                    <td class="x"><a href="./proses/transaksi/detail-product-transaksi.php?id_detail_transaksi=<?= @$rowDetailProduct['id_detail_transaksi'] ?>&id_transaksi=<?= $id_transaksi ?>">X</a>
+                    <td><a class="close-transaksi" href="./proses/transaksi/detail-product-transaksi.php?id_detail_transaksi=<?= @$rowDetailProduct['id_detail_transaksi'] ?>&id_transaksi=<?= $id_transaksi ?>">X</a>
                     </td>
                 </tr>
             <?php
@@ -180,7 +180,7 @@
         <!-- ... (konten modal) ... -->
         <div class="modal-header">
             <h5 class="modal-title">Tambah Paket</h5>
-            <span class="close" style="cursor: pointer;" onclick="closeModal()">&times;</span>
+            <span class="close" style="cursor: pointer;" onclick="closeModal2()">&times;</span>
         </div>
         <div class="modal-body">
             <form action="./proses/transaksi/proses-tambah-detail.php" class="login-form" method="post">
@@ -225,7 +225,7 @@
         <!-- ... (konten modal) ... -->
         <div class="modal-header">
             <h5 class="modal-title">bayar</h5>
-            <span class="close" style="cursor: pointer;" onclick="closeModal()">&times;</span>
+            <span class="close" style="cursor: pointer;" onclick="closeModal2()">&times;</span>
         </div>
         <div class="modal-body">
             <form action="./proses/transaksi/proses-pembayaran-sekarang.php" class="login-form" method="post">

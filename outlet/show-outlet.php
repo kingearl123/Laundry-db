@@ -1,5 +1,7 @@
 <section class="main">
 
+    <div id="overlay" class="overlay"></div>
+
     <h2>Data Outlet</h2>
     <button type="button" class="custom-btn btn-1" onclick="openModal('modaltambah')">
         Tambah

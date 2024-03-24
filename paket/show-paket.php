@@ -10,7 +10,7 @@
         <!-- ... (konten modal) ... -->
         <div class="modal-header">
             <h5 class="modal-title">Tambah Data</h5>
-            <span class="close" style="cursor: pointer;" onclick="closeModal('<?php echo $modal_id ?>')">&times;</span>
+            <span class="close" style="cursor: pointer;" onclick="closeModal1()">&times;</span>
         </div>
         <div class="modal-body">
             <form action="./proses/paket/proses-tambah-paket.php" class="login-form" method="post">

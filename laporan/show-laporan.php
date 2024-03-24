@@ -16,7 +16,7 @@ function rupiah($angka)
         <input type="date" name="tgl_awal" class="input" style="width:120px; font-size: 16px;" required>
         <span>End Date</span>
         <input type="date" name="tgl_akhir" class="input" style="width:120px; font-size: 16px;" required>
-        <button type="submit" name="submit">Generate Report</button>
+        <button type="submit" class="btn-4" name="submit">Generate Laporan</button>
     </form>
 
 
