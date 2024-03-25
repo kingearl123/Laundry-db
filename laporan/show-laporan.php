@@ -44,6 +44,8 @@ function rupiah($angka)
             $query = "SELECT * FROM tb_transaksi WHERE id_outlet = '" . $hasilUser['id_outlet'] . "' ORDER BY id_member ASC";
             $sql_rm = mysqli_query($conn, $query) or die(mysqli_error($conn));
             while ($data = mysqli_fetch_array($sql_rm)) {
+                $querymember = mysqli_query($conn, "SELECT * from tb_member WHERE id_member = '" . $data['id_member'] . "'");
+                $hasilmember = mysqli_fetch_array($querymember);
                 if ($data['status'] == "baru") {
             ?>
                     <tr style="background-color: #f69990;">
@@ -60,7 +62,7 @@ function rupiah($angka)
                             </b>
                         </td>
                         <td>
-                            <?= $hasilUser['nama'] ?>
+                            <?= $hasilmember['nama'] ?>
                         </td>
                         <td>
                             <?php
@@ -138,7 +140,7 @@ function rupiah($angka)
                             </b>
                         </td>
                         <td>
-                            <?= $hasilUser['nama'] ?>
+                            <?= $hasilmember['nama'] ?>
                         </td>
                         <td>
                             <?php
@@ -217,7 +219,7 @@ function rupiah($angka)
                             </b>
                         </td>
                         <td>
-                            <?= $hasilUser['nama'] ?>
+                            <?= $hasilmember['nama'] ?>
                         </td>
                         <td>
                             <?php
@@ -294,7 +296,7 @@ function rupiah($angka)
                             </b>
                         </td>
                         <td>
-                            <?= $hasilUser['nama'] ?>
+                            <?= $hasilmember['nama'] ?>
                         </td>
                         <td>
                             <?php
