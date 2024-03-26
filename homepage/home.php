@@ -49,10 +49,40 @@
                                 </div>
                         </div>
 
+
+                        <!-- Card 4 -->
+                        <div class="card">
+                                <div class="card-content">
+                                        <?php
+                                        // Query SQL untuk menghitung jumlah transaksi
+                                        $sql = "SELECT SUM(total_harga) AS total_transaksi FROM tb_detail_transaksi";
+
+                                        // Eksekusi query
+                                        $result = mysqli_query($conn, $sql);
+
+                                        // Periksa apakah query berhasil dieksekusi
+                                        if ($result) {
+                                                // Ambil nilai jumlah transaksi dari hasil query
+                                                $row = mysqli_fetch_assoc($result);
+                                                $total_transaksi = $row['total_transaksi'];
+                                        } else {
+                                                // Jika query gagal dieksekusi, atur total transaksi menjadi 0
+                                                $total_transaksi = 0;
+                                        }
+
+                                        ?>
+                                        <dl>
+                                                <dt class="description">Total Member</dt>
+                                                <dd class="value">Rp. <?= number_format($total_transaksi, 0, ',', '.'); ?></dd>
+                                        </dl>
+
+                                </div>
+                        </div>
+
+
+
+
                 </div>
         </div>
-
-</section>
-
 
 </section>
