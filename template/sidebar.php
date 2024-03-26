@@ -7,7 +7,7 @@
                 if ($_SESSION['role'] == 'admin') {
                 ?>
                     <li class="item">
-                        <div href="#" class="nav_link submenu_item">
+                        <div class="nav_link submenu_item">
                             <span class="navlink_icon">
                                 <i class='bx bx-table'></i> </span>
                             <span class="navlink">Data</span>
