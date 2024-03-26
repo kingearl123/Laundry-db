@@ -15,12 +15,15 @@
                         </div>
 
                         <ul class="menu_items submenu">
-
-
-                            <a href="./dashboard.php?page=outlet" class="nav_link sublink">Outlet</a>
-                            <a href="./dashboard.php?page=user" class="nav_link sublink">User</a>
-                            <a href="./dashboard.php?page=paket" class="nav_link sublink">Paket</a>
-
+                            <li>
+                                <a href="./dashboard.php?page=outlet" class="nav_link sublink">Outlet</a>
+                            </li>
+                            <li>
+                                <a href="./dashboard.php?page=user" class="nav_link sublink">User</a>
+                            </li>
+                            <li>
+                                <a href="./dashboard.php?page=paket" class="nav_link sublink">Paket</a>
+                            </li>
                         <?php } ?>
                         <?php
                         if ($_SESSION['role'] == 'admin') {

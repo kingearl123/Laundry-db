@@ -19,19 +19,19 @@
                 </div>
                 <div class="mb-3">
                     <label for="tnim" class="">Nama</label>
-                    <input type="text" class="form-control" name="nama" style="width: 100%;">
+                    <input type="text" class="form-control" required name="nama" style="width: 100%;">
                 </div>
                 <div class="mb-3">
                     <label for="nama" class="">Username</label>
-                    <input type="text" class="form-control" name="username" style="width: 100%;">
+                    <input type="text" class="form-control" required name="username" style="width: 100%;">
                 </div>
                 <div class="mb-3">
                     <label for="alamat" class="">Password</label>
-                    <input type="password" class="form-control" name="password" style="width: 100%;">
+                    <input type="password" class="form-control" required name="password" style="width: 100%;">
                 </div>
                 <div class="mb-3">
                     <label for="alamat" class="">Outlet User</label>
-                    <select name="id_outlet" id="" class="form-control">
+                    <select name="id_outlet" id="" class="form-control" required>
                         <?php
                         $query = mysqli_query($conn, "SELECT * FROM tb_outlet");
                         while ($hasil = mysqli_fetch_assoc($query)) {
@@ -46,7 +46,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="alamat" class="">Password</label>
-                    <select name="role" id="" class="form-control" style="width: 100%;">
+                    <select name="role" id="" class="form-control" style="width: 100%;" required>
                         <option value="owner">Owner</option>
                         <option value="kasir">Kasir</option>
                         <option value="admin">Admin</option>

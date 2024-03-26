@@ -1,24 +1,44 @@
-const body = document.querySelector("body");
-const sidebar = document.querySelector(".sidebar");
-const submenuItems = document.querySelectorAll(".submenu_item");
-const sidebarOpen = document.querySelector("#sidebarOpen");
-const overlay = document.getElementById("overlay"); // Get the overlay element
+document.addEventListener("DOMContentLoaded", function () {
+  const body = document.querySelector("body");
+  const submenuItems = document.querySelectorAll(".submenu_item");
+  const sidebar = document.querySelector(".sidebar");
+  const sidebarOpen = document.querySelector("#sidebarOpen");
+  const overlay = document.getElementById("overlay");
 
-sidebarOpen.addEventListener("click", () => {
-  sidebar.classList.toggle("close");
-  overlay.style.display = sidebar.classList.contains("close")
-    ? "block"
-    : "none"; // Toggle the overlay based on the sidebar's state
-});
+  sidebarOpen.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+  });
 
-submenuItems.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    item.classList.toggle("show_submenu");
-    submenuItems.forEach((item2, index2) => {
-      if (index !== index2) {
-        item2.classList.remove("show_submenu");
+  submenuItems.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      // Stop event propagation to prevent closing sidebar
+      event.stopPropagation();
+      item.classList.toggle("show_submenu");
+    });
+  });
+
+  // Modifikasi event listener untuk menangani pengalihan URL ketika item dropdown diklik
+  const sidebarItems = document.querySelectorAll(".nav_link, .sublink");
+  sidebarItems.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      // Prevent default behavior to prevent page reload
+      event.preventDefault();
+      // Redirect to the clicked link
+      const href = item.getAttribute("href");
+      if (href) {
+        window.location.href = href;
       }
     });
+  });
+
+  // Function to close sidebar without overlay
+  function closeSidebar() {
+    sidebar.classList.add("close");
+  }
+
+  // Event listener for overlay
+  overlay.addEventListener("click", () => {
+    closeSidebar();
   });
 });
 
