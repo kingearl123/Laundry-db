@@ -11,7 +11,7 @@
                                                 $jumla = mysqli_num_rows($sho);
                                         ?>
                                                 <dl>
-                                                        <dt class="description">Total Transaksi</dt>
+                                                        <dt class="description">Total Data Transaksi</dt>
                                                         <dd class="value"><?php printf(" %d\n", $jumla) ?></dd>
                                                 </dl>
                                         <?php } ?>
@@ -72,7 +72,7 @@
 
                                         ?>
                                         <dl>
-                                                <dt class="description">Total Member</dt>
+                                                <dt class="description">Jumlah Transaksi</dt>
                                                 <dd class="value">Rp. <?= number_format($total_transaksi, 0, ',', '.'); ?></dd>
                                         </dl>
 
