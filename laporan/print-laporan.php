@@ -26,8 +26,8 @@ $tgl_akhir = $_POST['tgl_akhir'];
 </head>
 
 <body>
-    <h2 class="align-center">LAUNDRY TRANSACTION REPORT</h2>
-    <h3>Period:
+    <h2 class="align-center">LAPORAN TRANSAKSI</h2>
+    <h3>Periode:
         <?= $tgl_awal . " to " . $tgl_akhir ?>
     </h3>
 
@@ -50,7 +50,6 @@ $tgl_akhir = $_POST['tgl_akhir'];
       GROUP BY nama_paket ORDER BY jumlah DESC";
         $namaPaket = mysqli_fetch_array(mysqli_query($conn, $query));
     }
-    echo "Packages that customers often choose : <b>" . $namaPaket['nama_paket'] . "<b>";
     ?>
 
     <hr style="width:100%;" , size="3" , color="black">
@@ -99,7 +98,7 @@ $tgl_akhir = $_POST['tgl_akhir'];
                 }
             ?>
                 <tr>
-                    <td align="left" class="outlet" colspan="3">Outlet Name :
+                    <td align="left" class="outlet" colspan="3">Nama Outlet :
                         <b>
                             <?= $baris_outlet['nama_outlet'] ?>
                         </b>
@@ -134,7 +133,7 @@ $tgl_akhir = $_POST['tgl_akhir'];
                             $total_keseluruhan = ($grand_total['0'] + $baris['biaya_tambahan'] + $pajak) - $diskon;
                             $total_keseluruhan = round($total_keseluruhan);
                             $tampil_total = number_format($total_keseluruhan, 0, ',', '.');
-                            echo "Total Price : <b>Rp " . $tampil_total . "<b>";
+                            echo "Total Harga : <b>Rp " . $tampil_total . "<b>";
                             $total_semua += $tampil_total;
                             ?>
                         </td>
@@ -145,9 +144,9 @@ $tgl_akhir = $_POST['tgl_akhir'];
             }
             ?>
             <tr align="right">
-                <td colspan="3"><b>Total Income</b>
+                <td colspan="3"><b>Total Pendapatan</b>
                     <br>
-                    <?= "From Date : " . $tgl_awal . " to " . $tgl_akhir ?>
+                    <?= "Dari Tanggal : " . $tgl_awal . " Sampai Tanggal " . $tgl_akhir ?>
                 </td>
                 <td>
                     <?php
@@ -162,7 +161,7 @@ $tgl_akhir = $_POST['tgl_akhir'];
 
 </body>
 <script>
-    // window.print();
+    window.print();
 </script>
 
 </html>

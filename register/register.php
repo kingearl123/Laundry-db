@@ -75,6 +75,12 @@ include "../config/config.php";
             border-radius: 6px;
         }
 
+        select {
+            outline: none;
+            padding: 0 14px;
+            border: 1px solid#CACACA;
+        }
+
         .field input,
         .field button {
             height: 100%;

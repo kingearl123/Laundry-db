@@ -151,7 +151,7 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="alamat" class="">Password</label>
+                                <label for="alamat" class="">Role</label>
                                 <select name="role" id="" class="form-control" style="width: 100%;">
                                     <option value="owner" <?php if ($data['role'] == "owner")
                                                                 echo 'selected="selected"'; ?>>Owner</option>
