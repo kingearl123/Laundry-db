@@ -174,7 +174,7 @@ include "../config/config.php";
     <section class="container forms">
         <div class="form login">
             <div class="form-content">
-                <header>Login</header>
+                <header>Register</header>
                 <form action="../proses/proses-register.php" method="post">
                     <div class="field input-field">
                         <input type="text" name="nama" placeholder="Masukan Nama Lengkap" class="input">
@@ -204,7 +204,7 @@ include "../config/config.php";
                         <option value="kasir">kasir</option>
                     </select>
                     <div class="field button-field">
-                        <input type="submit" style="background: #4070f4; color:#FFF;" value="login"></input>
+                        <input type="submit" style="background: #4070f4; color:#FFF;" value="Register"></input>
                     </div>
                 </form>
 
