@@ -19,7 +19,6 @@ $tgl_akhir = $_POST['tgl_akhir'];
         @media print {
             .outlet {
                 background-color: yellow !important;
-                -webkit-print-color-adjust: exact;
             }
         }
     </style>
