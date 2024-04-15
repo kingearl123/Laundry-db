@@ -362,6 +362,7 @@ function rupiah($angka)
             }
             ?>
         </table>
+    </div>
 </section>
 <script>
     function myFunction() {

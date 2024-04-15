@@ -34,44 +34,46 @@ $tgl_akhir = $_POST['tgl_akhir'];
     <?php
     if (@$_SESSION['role'] == 'admin' or @$_SESSION['role'] == 'owner') {
         $query = "SELECT nama_paket, COUNT(nama_paket) as jumlah FROM tb_transaksi 
-      INNER JOIN tb_detail_transaksi ON tb_transaksi.id_transaksi = tb_detail_transaksi.id_transaksi
-      INNER JOIN tb_paket ON tb_detail_transaksi.id_paket = tb_paket.id_paket
-      WHERE tgl BETWEEN '$tgl_awal 00:00:00' AND '$tgl_akhir 23:59:59'
-      GROUP BY nama_paket ORDER BY jumlah DESC";
+              INNER JOIN tb_detail_transaksi ON tb_transaksi.id_transaksi = tb_detail_transaksi.id_transaksi
+              INNER JOIN tb_paket ON tb_detail_transaksi.id_paket = tb_paket.id_paket
+              WHERE tgl BETWEEN '$tgl_awal 00:00:00' AND '$tgl_akhir 23:59:59'
+              GROUP BY nama_paket ORDER BY jumlah DESC";
         $namaPaket = mysqli_fetch_array(mysqli_query($conn, $query));
     } else {
         $id_outlet = $_SESSION['idOutlet'];
         $query = "SELECT nama_paket, COUNT(nama_paket) as jumlah FROM tb_transaksi 
-      INNER JOIN tb_detail_transaksi ON tb_transaksi.id_transaksi = tb_detail_transaksi.id_transaksi
-      INNER JOIN tb_paket ON tb_detail_transaksi.id_paket = tb_paket.id_paket
-      WHERE tgl BETWEEN '$tgl_awal 00:00:00' AND '$tgl_akhir 23:59:59'
-      AND dibayar='dibayar' AND id_outlet='$id_outlet'
-      GROUP BY nama_paket ORDER BY jumlah DESC";
+              INNER JOIN tb_detail_transaksi ON tb_transaksi.id_transaksi = tb_detail_transaksi.id_transaksi
+              INNER JOIN tb_paket ON tb_detail_transaksi.id_paket = tb_paket.id_paket
+              WHERE tgl BETWEEN '$tgl_awal 00:00:00' AND '$tgl_akhir 23:59:59'
+              AND tb_transaksi.dibayar='dibayar' AND tb_transaksi.id_outlet='$id_outlet'
+              GROUP BY nama_paket ORDER BY jumlah DESC";
         $namaPaket = mysqli_fetch_array(mysqli_query($conn, $query));
     }
     ?>
+
 
     <hr style="width:100%;" , size="3" , color="black">
     <hr>
 
     <?php
     if (@$_SESSION['role'] == 'admin' or @$_SESSION['role'] == 'owner') {
-        $query = "SELECT tb_outlet.id_outlet as id_outlet,tb_outlet.nama as nama_outlet FROM tb_detail_transaksi 
-      INNER JOIN tb_transaksi ON tb_detail_transaksi.id_transaksi = tb_transaksi.id_transaksi
-      INNER JOIN tb_outlet ON tb_transaksi.id_outlet = tb_outlet.id_outlet
-      WHERE tgl BETWEEN '$tgl_awal 00:00:00' AND '$tgl_akhir 23:59:59' AND dibayar='dibayar'
-      GROUP BY tb_outlet.id_outlet";
+        $query = "SELECT tb_outlet.id_outlet as id_outlet, tb_outlet.nama as nama_outlet FROM tb_detail_transaksi 
+              INNER JOIN tb_transaksi ON tb_detail_transaksi.id_transaksi = tb_transaksi.id_transaksi
+              INNER JOIN tb_outlet ON tb_transaksi.id_outlet = tb_outlet.id_outlet
+              WHERE tgl BETWEEN '$tgl_awal 00:00:00' AND '$tgl_akhir 23:59:59' AND tb_transaksi.dibayar='dibayar'
+              GROUP BY tb_outlet.id_outlet";
         $query_outlet = mysqli_query($conn, $query);
     } else {
         $id_outlet = $_SESSION['idOutlet'];
-        $query = "SELECT tb_outlet.id_outlet as id_outlet,tb_outlet.nama as nama_outlet FROM tb_detail_transaksi 
-      INNER JOIN tb_transaksi ON tb_detail_transaksi.id_transaksi = tb_transaksi.id_transaksi
-      INNER JOIN tb_outlet ON tb_transaksi.id_outlet = tb_outlet.id_outlet
-      WHERE tgl BETWEEN '$tgl_awal 00:00:00' AND '$tgl_akhir 23:59:59' AND dibayar='dibayar' AND tb_outlet.id='$id_outlet'
-      GROUP BY tb_outlet.id_outlet";
+        $query = "SELECT tb_outlet.id_outlet as id_outlet, tb_outlet.nama as nama_outlet FROM tb_detail_transaksi 
+              INNER JOIN tb_transaksi ON tb_detail_transaksi.id_transaksi = tb_transaksi.id_transaksi
+              INNER JOIN tb_outlet ON tb_transaksi.id_outlet = tb_outlet.id_outlet
+              WHERE tgl BETWEEN '$tgl_awal 00:00:00' AND '$tgl_akhir 23:59:59' AND tb_transaksi.dibayar='dibayar' AND tb_outlet.id_outlet='$id_outlet'
+              GROUP BY tb_outlet.id_outlet";
         $query_outlet = mysqli_query($conn, $query);
     }
     ?>
+
 
     <center>
         <table border="1" cellpadding="10" cellspacing="0">
@@ -87,7 +89,7 @@ $tgl_akhir = $_POST['tgl_akhir'];
               INNER JOIN tb_outlet ON tb_transaksi.id_outlet=tb_outlet.id_outlet
               INNER JOIN tb_user ON tb_transaksi.id_user=tb_user.id_user WHERE tgl BETWEEN '$tgl_awal 00:00:00' AND '$tgl_akhir 23:59:59' AND dibayar='dibayar' AND tb_outlet.id_outlet='$id_outlet' GROUP BY kode_invoice");
                 } else {
-                    $id_outlet = $_SESSION['id_outlet'];
+                    $id_outlet = $_SESSION['idOutlet'];
                     $query = mysqli_query($conn, "SELECT *, tb_outlet.id_outlet AS id_outlet_tb_outlet, tb_outlet.nama AS nama_outlet, tb_transaksi.id_transaksi AS id_transaksi, tb_member.nama AS nama_member FROM tb_detail_transaksi
               INNER JOIN tb_transaksi ON tb_detail_transaksi.id_transaksi=tb_transaksi.id_transaksi
               INNER JOIN tb_member ON tb_transaksi.id_member=tb_member.id_member

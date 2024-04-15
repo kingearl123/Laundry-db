@@ -2,7 +2,7 @@
 
     <center>
 
-        <h2>Data Transaksi</h2>
+        <h2>Halaman Transaksi</h2>
         <button type="button" class="custom-btn btn-1" onclick="openModal('modaltambah')">
             Tambah
         </button>
