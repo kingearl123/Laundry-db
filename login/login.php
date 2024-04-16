@@ -172,11 +172,11 @@ include "../config/config.php";
         <form action="../proses/proses-login.php" method="post">
 
           <div class="field input-field">
-            <input type="text" name="username" placeholder="Username" class="input">
+            <input type="text" name="username" placeholder="Username" required class="input">
           </div>
 
           <div class="field input-field">
-            <input type="password" name="password" placeholder="Password" class="password">
+            <input type="password" name="password" placeholder="Password" required class="password">
           </div>
           <div class="field button-field">
             <input type="submit" style="background: #4070f4; color:#FFF;" value="login"></input>

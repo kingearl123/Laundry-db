@@ -177,17 +177,17 @@ include "../config/config.php";
                 <header>Register</header>
                 <form action="../proses/proses-register.php" method="post">
                     <div class="field input-field">
-                        <input type="text" name="nama" placeholder="Masukan Nama Lengkap" class="input">
+                        <input type="text" name="nama" placeholder="Masukan Nama Lengkap" required class="input">
                     </div>
                     <div class="field input-field">
-                        <input type="text" name="username" placeholder="Masukan Username" class="input">
+                        <input type="text" name="username" placeholder="Masukan Username" required class="input">
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" name="password" placeholder="Password" class="password">
+                        <input type="password" name="password" required placeholder="Password" class="password">
                     </div>
 
-                    <select class="field input-field" name="id_outlet" id="">
+                    <select class="field input-field" name="id_outlet" required>
                         <?php
                         $query = mysqli_query($conn, "SELECT * FROM tb_outlet");
                         while ($hasil = mysqli_fetch_assoc($query)) {
@@ -198,7 +198,7 @@ include "../config/config.php";
                         ?>
                     </select>
 
-                    <select class="field input-field" name="role" id="">
+                    <select class="field input-field" required name="role" id="">
                         <option value="owner">owner</option>
                         <option value="admin">admin</option>
                         <option value="kasir">kasir</option>
