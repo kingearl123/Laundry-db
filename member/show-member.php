@@ -15,7 +15,7 @@
             <form action="./proses/member/proses-tambah-member.php" class="login-form" method="post">
                 <div class="form-group">
                     <label for="nama">Nama Member</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Outlet" required>
+                    <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Member" required>
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat</label>

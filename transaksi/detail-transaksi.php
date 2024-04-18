@@ -122,7 +122,7 @@
                     <td><?= @$rowDetailProduct['qty'] ?></td>
                     <td><?= rupiah(@$hasilProduct['harga']) ?></td>
                     <td align="right"><?= rupiah(@$totalHargaPerItem) ?></td>
-                    <td><a class="close-transaksi" href="./proses/transaksi/detail-product-transaksi.php?id_detail_transaksi=<?= @$rowDetailProduct['id_detail_transaksi'] ?>&id_transaksi=<?= $id_transaksi ?>">X</a>
+                    <td><a <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden" ?> class="close-transaksi" href="./proses/transaksi/detail-product-transaksi.php?id_detail_transaksi=<?= @$rowDetailProduct['id_detail_transaksi'] ?>&id_transaksi=<?= $id_transaksi ?>">X</a>
                     </td>
                 </tr>
             <?php
