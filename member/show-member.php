@@ -65,8 +65,14 @@
                     <td><?= $dataoutlet['tlp'] ?></td>
                     <td>
                         <button type="button" class="custom-btn btn-2" data-member-id="<?= $dataoutlet['id_member'] ?>" onclick="openModal('<?php echo $modal_id ?>')">Edit</button>
+                        <?php
+                        $id = $dataoutlet['id_member'];
+                        $hide_delete = mysqli_fetch_row(mysqli_query($conn, "SELECT COUNT(*) as total FROM tb_member INNER JOIN tb_transaksi ON tb_member.id_member=tb_transaksi.id_member WHERE tb_member.id_member='$id'"));
 
-                        <a href="./proses/member/proses-hapus-member.php?id_member=<?= $dataoutlet['id_member'] ?>" class="custom-btn btn-3">Hapus</a>
+                        if ($hide_delete[0] == '0') {
+                        ?>
+                            <a href="./proses/member/proses-hapus-member.php?id_member=<?= $dataoutlet['id_member'] ?>" class="custom-btn btn-3">Hapus</a>
+                        <?php } ?>
                     </td>
                 </tr>
 
