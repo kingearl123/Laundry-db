@@ -113,17 +113,20 @@
                         }
                         ?>
                     </td>
-                    <td>
-                        <?= $data['nama_paket'] ?>
-                    </td>
-                    <td>
-                        <?= rupiah($data['harga']) ?>
-                    </td>
-
+                    <td><?= $data['nama_paket'] ?></td>
+                    <td><?= rupiah($data['harga']) ?></td>
                     <td>
                         <button type="button" class="custom-btn btn-2" data-outlet-id="<?= $dataoutlet['id_paket'] ?>" onclick="openModal('<?php echo $modal_id ?>')">Edit</button>
+                        <?php
+                        $id = $data['id_paket'];
+                        $hide_delete = mysqli_fetch_row(mysqli_query($conn, "SELECT COUNT(*) as total FROM tb_paket INNER JOIN tb_detail_transaksi ON tb_paket.id_paket=tb_detail_transaksi.id_paket WHERE tb_paket.id_paket='$id'"));
 
-                        <a href="./proses/paket/proses-hapus-paket.php?id_paket=<?= $dataoutlet['id_paket'] ?>" class="custom-btn btn-3">Hapus</a>
+                        if ($hide_delete[0] == '0') {
+                        ?>
+                            <a href="./proses/paket/proses-hapus-paket.php?id_paket=<?= $data['id_paket'] ?>" class="custom-btn btn-3">Hapus</a>
+                        <?php
+                        }
+                        ?>
                     </td>
                 </tr>
 

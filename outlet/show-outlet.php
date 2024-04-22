@@ -61,8 +61,20 @@
                     <td>
 
                         <button type="button" class="custom-btn btn-2" data-outlet-id="<?= $dataoutlet['id_outlet'] ?>" onclick="openModal('<?php echo $modal_id ?>')">Edit</button>
+                        <?php
+                        $id = $dataoutlet['id_outlet'];
+                        $hide_delete1 = mysqli_fetch_row(mysqli_query($conn, "SELECT COUNT(*) as total FROM tb_outlet INNER JOIN tb_user ON tb_outlet.id_outlet=tb_user.id_outlet WHERE tb_outlet.id_outlet='$id'"));
+                        $hide_delete2 = mysqli_fetch_row(mysqli_query($conn, "SELECT COUNT(*) as total FROM tb_outlet INNER JOIN tb_paket ON tb_outlet.id_outlet=tb_paket.id_outlet WHERE tb_outlet.id_outlet='$id'"));
+                        $hide_delete3 = mysqli_fetch_row(mysqli_query($conn, "SELECT COUNT(*) as total FROM tb_outlet INNER JOIN tb_transaksi ON tb_outlet.id_outlet=tb_transaksi.id_outlet WHERE tb_outlet.id_outlet='$id'"));
 
-                        <a href="./proses/outlet/proses-hapus-outlet.php?id_outlet=<?= $dataoutlet['id_outlet'] ?>" class="custom-btn btn-3">Hapus</a>
+                        if ($hide_delete1[0] == '0' && $hide_delete2[0] == '0' && $hide_delete3[0] == '0') {
+                        ?>
+
+                            <a href="./proses/outlet/proses-hapus-outlet.php?id_outlet=<?= $dataoutlet['id_outlet'] ?>" class="custom-btn btn-3">Hapus</a>
+                        <?php
+                        }
+                        ?>
+
                     </td>
                 </tr>
 

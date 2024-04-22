@@ -5,7 +5,7 @@
 
     <div class="flex" style="display: flex;
         justify-content: space-between;" ">
-        <table border=" 1" style="  width:  45%; /* Anda dapat menyesuaikan lebar sesuai kebutuhan */
+        <table border=" 1" style="width:45%;
         border-collapse: collapse;
 ">
         <?php
@@ -174,7 +174,7 @@
             </button>
         </a>
         <a href="#" <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden" ?>>
-            <button type="button" onclick="window.location='./dashboard.php?page=transaksi'" <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden"; ?> class="btn-1 custom-btn-1">
+            <button type="button" onclick="window.location='./dashboard.php?page=laporan'" <?php if ($rowTransaksi['dibayar'] == 'dibayar') echo "hidden"; ?> class="btn-1 custom-btn-1">
                 Pay Later
             </button>
         </a>

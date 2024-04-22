@@ -10,7 +10,7 @@ $id_paket = trim(mysqli_real_escape_string($conn, $_POST['id_paket']));
     if ($queryupdate) {
         echo "<script>
         alert('Data berhasil di edit');
-        window.location='../../view/dashboard.php?page=paket';
+        window.location='../../dashboard.php?page=paket';
         </script>";
     } else {
         echo "Gagal mengedit data outlet: " . mysqli_error($conn);

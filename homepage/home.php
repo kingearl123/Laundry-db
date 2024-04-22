@@ -1,76 +1,76 @@
 <section class="main">
-        <div class="container">
-                <h2 class="title">Dashboard</h2>
-                <div class="grid">
+    <div class="container">
+        <h2 class="title">Dashboard</h2>
+        <div class="grid">
 
-                        <div class="card">
-                                <?php
+            <div class="card">
+                <?php
                                 if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'kasir' || $_SESSION['role'] == 'owner') {
                                 ?>
-                                        <div class="card-content">
-                                                <?php
+                <div class="card-content">
+                    <?php
                                                 $acsql = "SELECT * from tb_transaksi";
                                                 if ($sho = mysqli_query($conn, $acsql)) {
                                                         $jumla = mysqli_num_rows($sho);
                                                 ?>
-                                                        <dl>
-                                                                <dt class="description">Total Data Transaksi</dt>
-                                                                <dd class="value"><?php printf(" %d\n", $jumla) ?></dd>
-                                                        </dl>
-                                                <?php } ?>
+                    <dl>
+                        <dt class="description">Total Data Transaksi</dt>
+                        <dd class="value"><?php printf(" %d\n", $jumla) ?></dd>
+                    </dl>
+                    <?php } ?>
 
-                                        </div>
-                                <?php } ?>
-                        </div>
+                </div>
+                <?php } ?>
+            </div>
 
-                        <div class="card">
-                                <?php
-                                if ($_SESSION['role'] == 'admin') {
+            <?php
+                        if ($_SESSION['role'] == 'admin') {
 
-                                ?>
-                                        <div class="card-content">
-                                                <?php
+                        ?>
+            <div class="card">
+                <div class="card-content">
+                    <?php
                                                 $acsql1 = "SELECT * from tb_paket";
                                                 if ($sho = mysqli_query($conn, $acsql1)) {
                                                         $jumla = mysqli_num_rows($sho);
                                                 ?>
-                                                        <dl>
-                                                                <dt class="description">Total Paket</dt>
-                                                                <dd class="value"><?php printf(" %d\n", $jumla) ?></dd>
-                                                        </dl>
-                                                <?php } ?>
-                                        </div>
-                                <?php } ?>
-                        </div>
+                    <dl>
+                        <dt class="description">Total Paket</dt>
+                        <dd class="value"><?php printf(" %d\n", $jumla) ?></dd>
+                    </dl>
+                    <?php } ?>
+                </div>
+            </div>
+            <?php } ?>
 
-                        <div class="card">
-                                <?php
-                                if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'kasir') {
+            <?php
+                        if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'kasir') {
 
-                                ?>
-                                        <div class="card-content">
-                                                <?php
+                        ?>
+            <div class="card">
+                <div class="card-content">
+                    <?php
                                                 $acsql2 = "SELECT * from tb_member";
                                                 if ($sho = mysqli_query($conn, $acsql2)) {
                                                         $jumla = mysqli_num_rows($sho);
                                                 ?>
-                                                        <dl>
-                                                                <dt class="description">Total Member</dt>
-                                                                <dd class="value"><?php printf(" %d\n", $jumla) ?></dd>
-                                                        </dl>
-                                                <?php } ?>
-                                        </div>
-                                <?php } ?>
-                        </div>
+                    <dl>
+                        <dt class="description">Total Member</dt>
+                        <dd class="value"><?php printf(" %d\n", $jumla) ?></dd>
+                    </dl>
+                    <?php } ?>
+                </div>
+            </div>
+            <?php } ?>
 
 
-                        <!-- Card 4 -->
-                        <div class="card">
-                                <?php
-                                if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'kasir' || $_SESSION['role'] == 'owner') {
-                                ?>
-                                        <div class="card-content">
-                                                <?php
+            <!-- Card 4 -->
+            <?php
+                        if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'kasir' || $_SESSION['role'] == 'owner') {
+                        ?>
+            <div class="card">
+                <div class="card-content">
+                    <?php
                                                 // Query SQL untuk menghitung jumlah transaksi
                                                 $sql = "SELECT SUM(total_harga) AS total_transaksi FROM tb_detail_transaksi";
 
@@ -88,21 +88,15 @@
                                                 }
 
                                                 ?>
-                                                <dl>
-                                                        <dt class="description">Jumlah Transaksi</dt>
-                                                        <dd class="value">Rp. <?= number_format($total_transaksi, 0, ',', '.'); ?></dd>
-                                                </dl>
-
-                                        </div>
-                        </div>
-                <?php } ?>
-
-
-
-
-
+                    <dl>
+                        <dt class="description">Jumlah Transaksi</dt>
+                        <dd class="value">Rp. <?= number_format($total_transaksi, 0, ',', '.'); ?></dd>
+                    </dl>
 
                 </div>
+            </div>
+            <?php } ?>
         </div>
+    </div>
 
 </section>

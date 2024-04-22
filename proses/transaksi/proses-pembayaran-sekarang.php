@@ -24,7 +24,7 @@ $queryUpdate = mysqli_query($conn,$updateTransaksi);
 if($queryUpdate){
 echo "<script>
     alert('Kembalian : $kembalian');
-    window.location='../../dashboard.php?page=transaksi';
+    window.location='../../dashboard.php?page=laporan';
     </script>";
 } else {
     echo "Gagal mengedit data transaksi: " . mysqli_error($conn);
