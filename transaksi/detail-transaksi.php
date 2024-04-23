@@ -3,7 +3,7 @@
 
     <h2 align="center">Detail Transaksi</h2>
 
-    <div class="flex" style="display: flex;
+    <div class="flex" style="display: flex; grid-template-columns: repeat(2,1fr);
         justify-content: space-between;" ">
         <table border=" 1" style="width:45%;
         border-collapse: collapse;
@@ -56,8 +56,13 @@
             <td><?= $rowTransaksi['batas_waktu'] ?></td>
         </tr>
         <tr>
-            <td>Status</td>
+            <td>Status Pembayaran</td>
+            <td><?= $rowTransaksi['dibayar'] ?></td>
+        </tr>
+        <tr>
+            <td>Status Pesanan</td>
             <td>
+
                 <form id="status-form" action="./proses/transaksi/proses-edit-status-transaksi.php" method="post">
                     <input type="text" name="id_transaksi" value="<?= $rowTransaksi['id_transaksi'] ?>" hidden>
                     <select id="status-select" name="status" class="input" style="width: 150px; font-size:16px;">

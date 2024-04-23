@@ -183,9 +183,9 @@ include "../config/config.php";
           </div>
         </form>
 
-        <div class="form-link">
+        <!-- <div class="form-link">
           <span>Don't have an account? <a href="../register/register.php" class="link signup-link">Register</a></span>
-        </div>
+        </div> -->
       </div>
 
     </div>

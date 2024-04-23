@@ -133,7 +133,7 @@
                 <!-- modal edit -->
                 <div id="<?php echo $modal_id ?>" class="modal">
                     <div class="modal-header">
-                        <h5 class="modal-title">Tambah Data</h5>
+                        <h5 class="modal-title">Edit Data</h5>
                         <span class="close" style="cursor: pointer;" onclick="closeModal('<?php echo $modal_id ?>')">&times;</span>
                     </div>
                     <div class="modal-body">

@@ -100,7 +100,21 @@
                         $id = $data['id_user'];
                         $hide_delete1 = mysqli_query($conn, "SELECT COUNT(*) as total FROM tb_user INNER JOIN tb_transaksi USING(id_user) WHERE id_user = $id");
                         $cek1 = mysqli_fetch_row($hide_delete1)[0];
-                        if ($_SESSION['username'] != $data['username']) {
+
+                        $id = $data['id_user']; // Assuming $data['id_user'] contains the user's ID
+
+                        // Check if there are related records in tb_detail_transaksi
+                        $hide_delete_query = "SELECT COUNT(*) as total FROM tb_detail_transaksi WHERE id_transaksi IN (SELECT id_transaksi FROM tb_transaksi WHERE id_user = '$id')";
+                        $hide_delete_result = mysqli_query($conn, $hide_delete_query);
+                        $hide_delete_row = mysqli_fetch_assoc($hide_delete_result);
+                        $total_related_records = $hide_delete_row['total'];
+
+                        // Hide delete button if there are related records
+                        $hide_delete = ($total_related_records > 0) ? true : false;
+                        ?>
+                        <?php
+                        // Check if delete button should be hidden
+                        if (!$hide_delete && $_SESSION['username'] != $data['username']) {
                         ?>
                             <a href="./proses/user/proses-hapus-user.php?id_user=<?= $data['id_user'] ?>" class="custom-btn btn-3">Hapus</a>
                         <?php
